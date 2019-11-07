@@ -1,11 +1,11 @@
 image: maven:latest-jdk-8
 
 stages:
-    -test
-    -deploy
+    - test
+    - deploy
     
 build:
     stage: test
     script:
-        -mvn package
+        - mvn package
         
