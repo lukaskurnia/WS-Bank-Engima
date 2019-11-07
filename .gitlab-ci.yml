@@ -7,5 +7,6 @@ stages:
 build:
     stage: test
     script:
+        - cd ws-bank
         - mvn package
         
