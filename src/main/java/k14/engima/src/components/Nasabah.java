@@ -17,7 +17,7 @@ public class Nasabah {
 	String password;
 	
 //	Constructors
-	Nasabah(){
+	public Nasabah(){
 		nasabah_id= 0;
 		name= "";
 		no_rek= "";
@@ -25,7 +25,7 @@ public class Nasabah {
 		saldo= 0;
 		password= "";
 	}
-	Nasabah(int a,String b,String c,String d,int e,String f){
+	public Nasabah(int a,String b,String c,String d,int e,String f){
 		nasabah_id= a;
 		name= b;
 		no_rek= c;
@@ -35,5 +35,13 @@ public class Nasabah {
 	}
 	
 //	Methods
-	
+	public void print() {
+		System.out.println("nasabah_id: " + nasabah_id);
+		System.out.println("name: " + name);
+		System.out.println("no_rek: " + no_rek);
+		System.out.println("virtual_acc: " + virtual_acc);
+		System.out.println("saldo: " + saldo);
+		System.out.println("password: " + password);
+		System.out.println( "" );
+	}
 }

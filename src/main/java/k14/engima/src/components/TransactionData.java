@@ -18,7 +18,7 @@ public class TransactionData {
 	String no_terkait;
 	Date timestamp;
 //	Constructors
-	TransactionData(){
+	public TransactionData(){
 		txn_id = 0;
 		nasabah_id = 0;
 		jenis_transaksi = 0;
@@ -26,7 +26,7 @@ public class TransactionData {
 		no_terkait = "";
 		timestamp = new Date();
 	}
-	TransactionData(int a,int b,int c,int d,String e,Date f){
+	public TransactionData(int a,int b,int c,int d,String e,Date f){
 		txn_id = a;
 		nasabah_id = b;
 		jenis_transaksi = c;
@@ -36,5 +36,14 @@ public class TransactionData {
 	}
 	
 //	Methods
-	
+//	Methods
+	public void print() {
+		System.out.println("txn_id: " + txn_id);
+		System.out.println("nasabah_id: " + nasabah_id);
+		System.out.println("jenis_transaksi: " + jenis_transaksi);
+		System.out.println("jumlah_transaksi: " + jumlah_transaksi);
+		System.out.println("no_terkait: " + no_terkait);
+		System.out.println("timestamp: " + timestamp);
+		System.out.println( "" );
+	}
 }
