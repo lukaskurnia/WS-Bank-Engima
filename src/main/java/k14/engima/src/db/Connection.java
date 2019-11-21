@@ -1,5 +1,6 @@
 package k14.engima.src.db;
 import java.sql.*;
+
 import java.util.ArrayList;
 
 public class Connection {
@@ -30,10 +31,9 @@ public class Connection {
         return conn;
     }
 
-    public ArrayList<String> generateAllRekening() {
+    public ArrayList<String> generateAllNasabahRekening() {
         ArrayList <String> result = new ArrayList<String>();
         try{
-            
             ResultSet rs = stmt.executeQuery("SELECT * FROM nasabah");
             while(rs.next())
             {
@@ -45,19 +45,4 @@ public class Connection {
             }
         return result;
     }
-
-//    public String getName(String query){
-//        StringBuilder hasil = new StringBuilder();
-//        try{
-//            Statement stmt = conn.createStatement();
-//            ResultSet rs = stmt.executeQuery(query);
-//            while(rs.next()){
-//                hasil.append(rs.getString("timestamp")).append(" ");
-//            }
-//        }
-//        catch(Exception e){
-//            System.out.println(e);
-//            }
-//        return hasil.toString();
-//    }
 }

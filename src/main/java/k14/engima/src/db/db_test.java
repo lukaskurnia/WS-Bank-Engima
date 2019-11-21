@@ -1,5 +1,6 @@
 package k14.engima.src.db;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class db_test {
 	public static void main( String[] args )
@@ -14,7 +15,8 @@ public class db_test {
 //        	stt.execute("CREATE DATABASE IF NOT EXIST ws_bank");
 //        	stt.execute("USE ws_bank");
         	
-        	
+        	ArrayList <String> result = con.generateAllNasabahRekening();
+        	System.out.println(result);
         }
         catch(Exception e) {
         	e.printStackTrace();
