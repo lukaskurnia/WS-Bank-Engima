@@ -6,4 +6,9 @@
             name='HelloWorld'
             implementation='k14.engima.example.HelloWorld'
             url-pattern='/services/HelloWorld'/>
+
+    <endpoint
+            name='ValidateUser'
+            implementation='k14.engima.src.components.ValidateUser'
+            url-pattern='/services/ValidateUser'/>
 </endpoints>
