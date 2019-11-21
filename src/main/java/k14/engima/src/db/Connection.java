@@ -1,5 +1,6 @@
 package k14.engima.src.db;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Connection {
     private java.sql.Connection conn;
@@ -21,6 +22,26 @@ public class Connection {
         catch(Exception e){ 
             System.out.println(e);
             }
+    }
+
+    public java.sql.Connection getConn(){
+        return conn;
+    }
+
+    public ArrayList<String> generateAllRekening() {
+        ArrayList <String> result = new ArrayList<String>();
+        try{
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM nasabah");
+            while(rs.next())
+            {
+                result.add( rs.getString("no_rek"));
+            }
+        }
+        catch(Exception e){
+            System.out.println(e);
+            }
+        return result;
     }
 
 //    public String getName(String query){

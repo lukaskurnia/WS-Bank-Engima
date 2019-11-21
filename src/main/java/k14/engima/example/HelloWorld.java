@@ -15,6 +15,16 @@ public class HelloWorld {
 //    System.out.println(result);
     return result;
   }
+  @WebMethod
+  public String sayHelloWorldFor(String from) {
+//    Connection conn = new Connection();
+//    String hasil = conn.getName("select * from transaction_data;");
+    String result = "Hello, world, from " + from +"  " /* + hasil*/;
+//    conn.close();
+//    System.out.println(result);
+    return result;
+  }
+
   public static void main(String[] argv) {
     Object implementor = new HelloWorld ();
     String address = "http://localhost:9876/HelloWorld";
