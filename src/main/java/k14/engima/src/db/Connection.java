@@ -1,18 +1,22 @@
 package k14.engima.src.db;
 import java.sql.*;
+import k14.engima.src.components.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Connection {
     private java.sql.Connection conn;
+    private java.sql.Statement stmt;
 
     public Connection(){
         try{
             Class.forName(Config.driver);
             conn = DriverManager.getConnection(Config.dbUrl, Config.user, Config.password);
+            stmt = conn.createStatement();
         }
         catch(Exception e){ 
             System.out.println(e);
-            }
+        }
     }
 
     public void close() {
@@ -28,10 +32,9 @@ public class Connection {
         return conn;
     }
 
-    public ArrayList<String> generateAllRekening() {
+    public ArrayList<String> generateAllNasabahRekening() {
         ArrayList <String> result = new ArrayList<String>();
         try{
-            Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM nasabah");
             while(rs.next())
             {
@@ -43,19 +46,51 @@ public class Connection {
             }
         return result;
     }
-
-//    public String getName(String query){
-//        StringBuilder hasil = new StringBuilder();
-//        try{
-//            Statement stmt = conn.createStatement();
-//            ResultSet rs = stmt.executeQuery(query);
-//            while(rs.next()){
-//                hasil.append(rs.getString("timestamp")).append(" ");
-//            }
-//        }
-//        catch(Exception e){
-//            System.out.println(e);
-//            }
-//        return hasil.toString();
-//    }
+    
+    public ArrayList<Nasabah> getAllNasabah(){
+    	ArrayList <Nasabah> result = new ArrayList<Nasabah>();
+        try{
+            ResultSet rs = stmt.executeQuery("SELECT * FROM nasabah");
+            
+            while(rs.next())
+            {
+            	int nasabah_id=rs.getInt("nasabah_id");
+                String name=rs.getString("name");
+                String no_rek=rs.getString("no_rek");
+                String virtual_acc=rs.getString("virtual_acc");
+                int saldo=rs.getInt("saldo");
+                String password=rs.getString("password");
+            	Nasabah n = new Nasabah(nasabah_id,name,no_rek,virtual_acc,saldo,password);
+                result.add(n);
+            }
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    	return result;
+    }
+    
+    public ArrayList<TransactionData> getAllTransaction(){
+    	ArrayList <TransactionData> result = new ArrayList<TransactionData>();
+        try{
+            ResultSet rs = stmt.executeQuery("SELECT * FROM transaction_data");
+            
+            while(rs.next())
+            {
+            	int txn_id = rs.getInt("txn_id");
+            	int nasabah_id = rs.getInt("nasabah_id");
+            	int jenis_transaksi = rs.getInt("jenis_transaksi");
+            	int jumlah_transaksi = rs.getInt("jumlah_transaksi");
+            	String no_terkait = rs.getString("no_terkait");
+            	Date timestamp = rs.getDate("timestamp");
+            	
+                TransactionData n = new TransactionData(txn_id,nasabah_id,jenis_transaksi,jumlah_transaksi,no_terkait,timestamp);
+                result.add(n);
+            }
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    	return result;
+    }
 }

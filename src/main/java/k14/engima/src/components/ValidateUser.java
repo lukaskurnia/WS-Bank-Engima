@@ -9,7 +9,7 @@ public class ValidateUser {
     @WebMethod
     public Boolean isValidRekening(String rekening){
         Connection db = new Connection();
-        ArrayList <String> result = db.generateAllRekening();
+        ArrayList <String> result = db.generateAllNasabahRekening();
         return  result.contains(rekening);
     }
 }
