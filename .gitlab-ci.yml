@@ -1,8 +1,7 @@
 image: maven:3-jdk-8
 
 stages:
-    - test
-    - deploy
+    - build
 
 build:
     stage: build
