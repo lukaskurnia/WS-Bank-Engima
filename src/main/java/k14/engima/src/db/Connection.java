@@ -3,6 +3,7 @@ import java.sql.*;
 import k14.engima.src.components.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 public class Connection {
     private java.sql.Connection conn;
@@ -92,5 +93,85 @@ public class Connection {
             System.out.println(e);
         }
     	return result;
+    }
+    
+    public boolean cekRekeningValid(String no_rekening) {
+    	boolean valid = false;
+    	
+    	try{
+            ResultSet rs = stmt.executeQuery("SELECT * FROM nasabah");
+            
+            while(rs.next())
+            {
+            	String no_rek = rs.getString("no_rek");
+            	if(no_rek.equals(no_rekening)) {
+            		valid = true;
+            	}
+            }
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    	
+    	return valid;
+    }
+    
+    public ArrayList<TransactionData> getNasabahTransaction(int i){
+    	ArrayList<TransactionData> result = new ArrayList<TransactionData>();
+    	try{
+            ResultSet rs = stmt.executeQuery("SELECT * FROM nasabah JOIN transaction_data "+
+            								"WHERE nasabah.nasabah_id = transaction_data.nasabah_id AND transaction_data.nasabah_id ="+ 
+            								i);
+            while(rs.next())
+            {
+            	int txn_id = rs.getInt("txn_id");
+            	int nsbh_id = rs.getInt("nasabah_id");
+            	int jenis_transaksi = rs.getInt("jenis_transaksi");
+            	int jumlah_transaksi = rs.getInt("jumlah_transaksi");
+            	String no_terkait = rs.getString("no_terkait");
+            	Date timestamp = rs.getDate("timestamp");
+            	
+                TransactionData n = new TransactionData(txn_id,nsbh_id,jenis_transaksi,jumlah_transaksi,no_terkait,timestamp);
+                result.add(n);
+            }
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    	return result;
+    }
+    
+    public String generateVAccount() {
+    	// chose a Character random from this String 
+        String NumericString = "0123456789"; 
+  
+        // create StringBuffer size of AlphaNumericString 
+        StringBuilder sb = new StringBuilder(15); 
+  
+        for (int i = 0; i < 15; i++) { 
+  
+            // generate a random number between 
+            // 0 to AlphaNumericString variable length 
+            int index = (int)(NumericString.length() * Math.random()); 
+  
+            // add Character one by one in end of sb 
+            sb.append(NumericString.charAt(index)); 
+        } 
+  
+        return sb.toString(); 
+    }
+    
+    public void addVAtoNasabah(String VA, int id) {
+    	try{
+            ResultSet rs = stmt.executeQuery("SELECT * FROM nasabah_vaccount WHERE "+
+    	"virtual_acc = " + VA);
+            if(rs != null) {
+            	int st = stmt.executeUpdate("INSERT INTO nasabah_vaccount (nasabah_id,virtual_acc) "+
+            "VALUES ('"+id+"','"+VA+"')");
+            }
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
     }
 }

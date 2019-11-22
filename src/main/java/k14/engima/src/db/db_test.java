@@ -11,22 +11,21 @@ public class db_test {
         System.out.println( "Hello World!" );
         try {
         	Connection con = new Connection();
-//        	java.sql.Connection c = con.getConn();
         	
-//        	Statement stt = c.createStatement();
-////        	Create and Select DB
-//        	stt.execute("CREATE DATABASE IF NOT EXIST ws_bank");
-//        	stt.execute("USE ws_bank");
-        	
-//        	ArrayList <String> result = con.generateAllNasabahRekening();
-//        	System.out.println(result);
-        	ArrayList<Nasabah> n = con.getAllNasabah();
-        	for (Nasabah i : n) 
-                i.print(); 
-        	System.out.println( "" );
-        	ArrayList<TransactionData> t = con.getAllTransaction();
+//        	ArrayList<Nasabah> n = con.getAllNasabah();
+//        	for (Nasabah i : n) 
+//                i.print(); 
+//        	System.out.println( "" );
+//        	ArrayList<TransactionData> t = con.getAllTransaction();
+//        	for (TransactionData i : t) 
+//                i.print(); 
+//        	boolean b = con.cekRekeningValid("1234567890");
+//        	System.out.println("1234567890 status " + b);
+//        	System.out.println( "" );
+        	ArrayList<TransactionData> t = con.getNasabahTransaction(2);
         	for (TransactionData i : t) 
                 i.print(); 
+        	con.addVAtoNasabah(con.generateVAccount(), 1);
         }
         catch(Exception e) {
         	e.printStackTrace();
