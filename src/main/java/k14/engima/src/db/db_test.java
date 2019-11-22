@@ -12,16 +12,19 @@ public class db_test {
         try {
         	Connection con = new Connection();
         	
-        	ArrayList<Nasabah> n = con.getAllNasabah();
-        	for (Nasabah i : n) 
-                i.print(); 
-        	System.out.println( "" );
-        	ArrayList<TransactionData> t = con.getAllTransaction();
+//        	ArrayList<Nasabah> n = con.getAllNasabah();
+//        	for (Nasabah i : n) 
+//                i.print(); 
+//        	System.out.println( "" );
+//        	ArrayList<TransactionData> t = con.getAllTransaction();
+//        	for (TransactionData i : t) 
+//                i.print(); 
+//        	boolean b = con.cekRekeningValid("1234567890");
+//        	System.out.println("1234567890 status " + b);
+//        	System.out.println( "" );
+        	ArrayList<TransactionData> t = con.getNasabahTransaction(2);
         	for (TransactionData i : t) 
                 i.print(); 
-        	boolean b = con.cekRekeningValid("1234567890");
-        	System.out.println("1234567890 status " + b);
-        	System.out.println( "" );
         }
         catch(Exception e) {
         	e.printStackTrace();
