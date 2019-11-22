@@ -25,6 +25,7 @@ public class db_test {
         	ArrayList<TransactionData> t = con.getNasabahTransaction(2);
         	for (TransactionData i : t) 
                 i.print(); 
+        	con.addVAtoNasabah(con.generateVAccount(), 1);
         }
         catch(Exception e) {
         	e.printStackTrace();

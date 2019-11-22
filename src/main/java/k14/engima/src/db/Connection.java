@@ -3,6 +3,7 @@ import java.sql.*;
 import k14.engima.src.components.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 public class Connection {
     private java.sql.Connection conn;
@@ -138,5 +139,39 @@ public class Connection {
             System.out.println(e);
         }
     	return result;
+    }
+    
+    public String generateVAccount() {
+    	// chose a Character random from this String 
+        String NumericString = "0123456789"; 
+  
+        // create StringBuffer size of AlphaNumericString 
+        StringBuilder sb = new StringBuilder(15); 
+  
+        for (int i = 0; i < 15; i++) { 
+  
+            // generate a random number between 
+            // 0 to AlphaNumericString variable length 
+            int index = (int)(NumericString.length() * Math.random()); 
+  
+            // add Character one by one in end of sb 
+            sb.append(NumericString.charAt(index)); 
+        } 
+  
+        return sb.toString(); 
+    }
+    
+    public void addVAtoNasabah(String VA, int id) {
+    	try{
+            ResultSet rs = stmt.executeQuery("SELECT * FROM nasabah_vaccount WHERE "+
+    	"virtual_acc = " + VA);
+            if(rs != null) {
+            	int st = stmt.executeUpdate("INSERT INTO nasabah_vaccount (id,nasabah_id,virtual_acc) "+
+            "VALUES ('1','"+id+"','"+VA+"')");
+            }
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
     }
 }
