@@ -93,4 +93,27 @@ public class Connection {
         }
     	return result;
     }
+    
+    public boolean cekRekeningValid(String input) {
+    	boolean valid = false;
+    	
+    	try{
+            ResultSet rs = stmt.executeQuery("SELECT * FROM nasabah");
+            
+            while(rs.next())
+            {
+            	String nomor = rs.getString("no_rek");
+            	if(nomor.equals(input)) {
+            		valid = true;
+            	}
+            }
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    	
+    	return valid;
+    }
+    
+//    public ArrayList<TransactionData> getNasabahTransaction()
 }

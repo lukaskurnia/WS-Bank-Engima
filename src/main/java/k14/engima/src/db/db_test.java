@@ -11,15 +11,7 @@ public class db_test {
         System.out.println( "Hello World!" );
         try {
         	Connection con = new Connection();
-//        	java.sql.Connection c = con.getConn();
         	
-//        	Statement stt = c.createStatement();
-////        	Create and Select DB
-//        	stt.execute("CREATE DATABASE IF NOT EXIST ws_bank");
-//        	stt.execute("USE ws_bank");
-        	
-//        	ArrayList <String> result = con.generateAllNasabahRekening();
-//        	System.out.println(result);
         	ArrayList<Nasabah> n = con.getAllNasabah();
         	for (Nasabah i : n) 
                 i.print(); 
@@ -27,6 +19,9 @@ public class db_test {
         	ArrayList<TransactionData> t = con.getAllTransaction();
         	for (TransactionData i : t) 
                 i.print(); 
+        	boolean b = con.cekRekeningValid("1234567890");
+        	System.out.println("1234567890 status " + b);
+        	System.out.println( "" );
         }
         catch(Exception e) {
         	e.printStackTrace();

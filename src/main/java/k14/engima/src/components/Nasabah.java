@@ -25,13 +25,13 @@ public class Nasabah {
 		saldo= 0;
 		password= "";
 	}
-	public Nasabah(int a,String b,String c,String d,int e,String f){
-		nasabah_id= a;
-		name= b;
-		no_rek= c;
-		virtual_acc= d;
-		saldo= e;
-		password= f;
+	public Nasabah(int id_nasabah,String nama,String rekening,String v_acc,int saldo_n,String pass){
+		nasabah_id= id_nasabah;
+		name= nama;
+		no_rek= rekening;
+		virtual_acc= v_acc;
+		saldo= saldo_n;
+		password= pass;
 	}
 	
 //	Methods

@@ -26,13 +26,13 @@ public class TransactionData {
 		no_terkait = "";
 		timestamp = new Date();
 	}
-	public TransactionData(int a,int b,int c,int d,String e,Date f){
-		txn_id = a;
-		nasabah_id = b;
-		jenis_transaksi = c;
-		jumlah_transaksi= d;
-		no_terkait = e;
-		timestamp = f;
+	public TransactionData(int id,int nsbh_id,int jenis,int jumlah,String terkait,Date waktu){
+		txn_id = id;
+		nasabah_id = nsbh_id;
+		jenis_transaksi = jenis;
+		jumlah_transaksi= jumlah;
+		no_terkait = terkait;
+		timestamp = waktu;
 	}
 	
 //	Methods
