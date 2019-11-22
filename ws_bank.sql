@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 21, 2019 at 04:51 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.4
+-- Host: 127.0.0.1
+-- Generation Time: Nov 22, 2019 at 03:35 PM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -33,16 +33,38 @@ CREATE TABLE `nasabah` (
   `name` varchar(255) NOT NULL,
   `no_rek` varchar(18) NOT NULL,
   `virtual_acc` varchar(18) NOT NULL DEFAULT '0',
-  `saldo` int(11) NOT NULL
+  `saldo` int(11) NOT NULL,
+  `password` varchar(18) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `nasabah`
 --
 
-INSERT INTO `nasabah` (`nasabah_id`, `name`, `no_rek`, `virtual_acc`, `saldo`) VALUES
-(1, 'lukas', '1234567890', '0123456789', 100000),
-(2, 'andy', '2234567890', '0', 200000);
+INSERT INTO `nasabah` (`nasabah_id`, `name`, `no_rek`, `virtual_acc`, `saldo`, `password`) VALUES
+(1, 'lukas', '1234567890', '0123456789', 100000, 'password'),
+(2, 'andy', '2234567890', '0', 200000, 'password');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nasabah_vaccount`
+--
+
+CREATE TABLE `nasabah_vaccount` (
+  `id` int(11) NOT NULL,
+  `nasabah_id` int(11) NOT NULL,
+  `virtual_acc` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `nasabah_vaccount`
+--
+
+INSERT INTO `nasabah_vaccount` (`id`, `nasabah_id`, `virtual_acc`) VALUES
+(1, 1, '57358423753'),
+(2, 1, '2137557786'),
+(1, 1, '471893369775643');
 
 -- --------------------------------------------------------
 
@@ -56,7 +78,7 @@ CREATE TABLE `transaction_data` (
   `jenis_transaksi` tinyint(1) NOT NULL,
   `jumlah_transaksi` int(11) NOT NULL,
   `no_terkait` varchar(18) NOT NULL,
-  `timestamp` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `timestamp` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -64,7 +86,10 @@ CREATE TABLE `transaction_data` (
 --
 
 INSERT INTO `transaction_data` (`txn_id`, `nasabah_id`, `jenis_transaksi`, `jumlah_transaksi`, `no_terkait`, `timestamp`) VALUES
-(1, 1, 1, 30000, '2234567890', '2019-11-21 10:48:32');
+(1, 1, 1, 30000, '2234567890', '2019-11-21 10:48:32'),
+(2, 1, 1, 50000, '2234567890', '2019-11-21 10:48:32'),
+(3, 2, 1, 100000, '123456789', '2019-11-21 10:48:32'),
+(4, 2, 1, 5000, '123456789', '2019-11-21 10:48:32');
 
 --
 -- Indexes for dumped tables
@@ -97,7 +122,7 @@ ALTER TABLE `nasabah`
 -- AUTO_INCREMENT for table `transaction_data`
 --
 ALTER TABLE `transaction_data`
-  MODIFY `txn_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `txn_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
