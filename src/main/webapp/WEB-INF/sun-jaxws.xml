@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <endpoints xmlns='http://java.sun.com/xml/ns/jax-ws/ri/runtime' version='2.0'>
-
     <endpoint
-            name='HelloWorld'
-            implementation='k14.engima.example.HelloWorld'
-            url-pattern='/services/HelloWorld'/>
-
-    <endpoint
-            name='ValidateUser'
-            implementation='k14.engima.src.components.ValidateUser'
-            url-pattern='/services/ValidateUser'/>
+            name='ValidateRekening'
+            implementation='services.ValidateRekening'
+            url-pattern='/services/ValidateRekening'/>
 </endpoints>
