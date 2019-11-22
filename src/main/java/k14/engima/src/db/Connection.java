@@ -166,8 +166,8 @@ public class Connection {
             ResultSet rs = stmt.executeQuery("SELECT * FROM nasabah_vaccount WHERE "+
     	"virtual_acc = " + VA);
             if(rs != null) {
-            	int st = stmt.executeUpdate("INSERT INTO nasabah_vaccount (id,nasabah_id,virtual_acc) "+
-            "VALUES ('1','"+id+"','"+VA+"')");
+            	int st = stmt.executeUpdate("INSERT INTO nasabah_vaccount (nasabah_id,virtual_acc) "+
+            "VALUES ('"+id+"','"+VA+"')");
             }
         }
         catch(Exception e){
