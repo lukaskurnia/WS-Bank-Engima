@@ -1,66 +1,68 @@
 package dataservice;
 
 import javax.xml.bind.annotation.*;
+import java.util.List;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "##default", propOrder = {
-        "txnId",
-        "nasabahId",
+        "status",
         "jenisTxn",
         "amount",
         "noAcc",
-        "dateTime"
+        "transactionTime"
 })
 
 @XmlRootElement(name = "")
 public class Transaksi {
-    @XmlElement(name = "txnId", required = true)
-    private int txnId;
-    @XmlElement(name = "nasabahId", required = true)
-    private int nasabahId;
     @XmlElement(name = "jenisTxn", required = true)
-    private String jenisTxn;
+    private List<String> jenisTxn;
     @XmlElement(name = "amount", required = true)
-    private int amount;
+    private List<String> amount;
     @XmlElement(name = "noAcc", required = true)
-    private String noAcc;
-    @XmlElement(name = "dateTime", required = true)
-    private String dateTime;
+    private List<String> noAcc;
+    @XmlElement(name = "transactionTime", required = true)
+    private List<String> transactionTime;
+    @XmlElement(name = "status", required = true)
+    private int status;
 
-    public int getTxnId() {
-        return txnId;
+    public int getStatus() {
+        return status;
     }
 
-    public void setNasabahId(int nasabahId) {
-        this.nasabahId = nasabahId;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
-    public int getNasabahId() {
-        return nasabahId;
-    }
-
-    public void setJenisTxn(String jenisTxn) {
+    public void setJenisTxn(List<String> jenisTxn) {
         this.jenisTxn = jenisTxn;
     };
 
-    public String getJenisTxn() {
+    public List<String> getJenisTxn() {
         return jenisTxn;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(List<String> amount) {
         this.amount = amount;
     };
 
-    public int getAmount() {
+    public List<String> getAmount() {
         return amount;
     }
 
-    public void getDateTime(String dateTime) {
-        this.dateTime = dateTime;
+    public void setTransactionTime(List<String> transactionTime) {
+        this.transactionTime = transactionTime;
     }
 
-    public String setDataTime() {
-        return dateTime;
+    public List<String> getTransactionTime() {
+        return transactionTime;
+    }
+
+    public void setNoAcc(List<String> noAcc) {
+        this.noAcc = noAcc;
+    }
+
+    public List<String> getNoAcc() {
+        return noAcc;
     }
 
 }

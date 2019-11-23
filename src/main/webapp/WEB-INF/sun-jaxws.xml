@@ -13,4 +13,8 @@
             name='GetDataNasabah'
             implementation='services.GetDataNasabah'
             url-pattern='/services/GetDataNasabah'/>
+    <endpoint
+            name='GetTransactionHistory'
+            implementation='services.GetTransactionHistory'
+            url-pattern='/services/GetTransactionHistory'/>
 </endpoints>
