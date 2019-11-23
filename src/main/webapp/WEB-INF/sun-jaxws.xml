@@ -9,4 +9,8 @@
             name='GetVirtualAcc'
             implementation='services.GetVirtualAcc'
             url-pattern='/services/GetVirtualAcc'/>
+    <endpoint
+            name='GetDataNasabah'
+            implementation='services.GetDataNasabah'
+            url-pattern='/services/GetDataNasabah'/>
 </endpoints>
