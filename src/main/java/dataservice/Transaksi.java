@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.*;
         "dateTime"
 })
 
-@XmlRootElement(name = "Testing2")
+@XmlRootElement(name = "")
 public class Transaksi {
     @XmlElement(name = "txnId", required = true)
     private int txnId;

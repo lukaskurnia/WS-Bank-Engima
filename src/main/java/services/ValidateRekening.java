@@ -17,6 +17,7 @@ public class ValidateRekening {
             Connection conn = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/ws_bank?serverTimezone=UTC", "root", "");
             Statement stmt = conn.createStatement();
+
             String query = "SELECT no_rek FROM nasabah WHERE no_rek = " + noAcc;
             ResultSet rs = stmt.executeQuery(query);
 

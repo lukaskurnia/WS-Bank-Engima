@@ -5,4 +5,8 @@
             name='ValidateRekening'
             implementation='services.ValidateRekening'
             url-pattern='/services/ValidateRekening'/>
+    <endpoint
+            name='GetVirtualAcc'
+            implementation='services.GetVirtualAcc'
+            url-pattern='/services/GetVirtualAcc'/>
 </endpoints>

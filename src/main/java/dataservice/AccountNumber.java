@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.*;
         "noAcc"
 })
 
-@XmlRootElement(name = "Testing4")
+@XmlRootElement(name = "")
 public class AccountNumber {
     @XmlElement(name = "noAcc", required = true)
     private String noAcc;
@@ -16,7 +16,7 @@ public class AccountNumber {
     private int status;
 
 
-    public int setStatus() {
+    public int getStatus() {
         return status;
     }
     public void setStatus(int status) {

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.*;
         "saldo"
 })
 
-@XmlRootElement(name = "Testing")
+@XmlRootElement(name = "")
 public class Nasabah {
     @XmlElement(name = "nasabahId", required = true)
     private int nasabahId;
