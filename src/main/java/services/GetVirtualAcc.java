@@ -34,7 +34,7 @@ public class GetVirtualAcc {
             String query = "INSERT INTO nasabah_vaccount (id, nasabah_id, virtual_acc)"
                     + "VALUES (NULL, 1, " + virtual + ")";
             stmt.addBatch(query);
-            System.out.println(query);
+//            System.out.println(query);
             stmt.executeBatch();
 
             result.setStatus(200);
