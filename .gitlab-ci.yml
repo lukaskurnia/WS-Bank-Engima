@@ -1,11 +1,13 @@
 image: maven:3-jdk-8
 
-stages:
-    - build
+before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
 
-build:
-    stage: build
+stages:
+    - lint_build
+    - deploy
+
+lint:
+    stage: lint_build
     script:
         - mvn package
-
-
