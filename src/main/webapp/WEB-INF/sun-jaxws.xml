@@ -17,4 +17,9 @@
             name='GetTransactionHistory'
             implementation='services.GetTransactionHistory'
             url-pattern='/services/GetTransactionHistory'/>
+    <endpoint
+            name='Transfer'
+            implementation='services.Transfer'
+            url-pattern='/services/Transfer'/>
+
 </endpoints>
