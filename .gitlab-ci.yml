@@ -1,12 +1,13 @@
 image: maven:3-jdk-8
 
+before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+
 stages:
-    - test
+    - lint_build
     - deploy
-    
-build:
-    stage: test
+
+lint:
+    stage: lint_build
     script:
-        - cd ws-bank
         - mvn package
-        

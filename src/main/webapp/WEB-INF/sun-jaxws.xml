@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<endpoints xmlns='http://java.sun.com/xml/ns/jax-ws/ri/runtime' version='2.0'>
+    <endpoint
+            name='ValidateRekening'
+            implementation='services.ValidateRekening'
+            url-pattern='/services/ValidateRekening'/>
+    <endpoint
+            name='GetVirtualAcc'
+            implementation='services.GetVirtualAcc'
+            url-pattern='/services/GetVirtualAcc'/>
+    <endpoint
+            name='GetDataNasabah'
+            implementation='services.GetDataNasabah'
+            url-pattern='/services/GetDataNasabah'/>
+    <endpoint
+            name='GetTransactionHistory'
+            implementation='services.GetTransactionHistory'
+            url-pattern='/services/GetTransactionHistory'/>
+    <endpoint
+            name='Transfer'
+            implementation='services.Transfer'
+            url-pattern='/services/Transfer'/>
+    <endpoint
+            name='CheckTransaction'
+            implementation='services.CheckTransaction'
+            url-pattern='/services/CheckTransaction'/>
+
+</endpoints>
