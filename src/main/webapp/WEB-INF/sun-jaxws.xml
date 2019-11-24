@@ -21,5 +21,9 @@
             name='Transfer'
             implementation='services.Transfer'
             url-pattern='/services/Transfer'/>
+    <endpoint
+            name='CheckTransaction'
+            implementation='services.CheckTransaction'
+            url-pattern='/services/CheckTransaction'/>
 
 </endpoints>
