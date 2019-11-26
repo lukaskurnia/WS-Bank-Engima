@@ -4,10 +4,19 @@ before_script:
     - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
 
 stages:
-    - lint_build
-    - deploy
+    - lint
+    - build_deploy
 
 lint:
-    stage: lint_build
+    stage: lint
     script:
-        - mvn package
+        - mvn checkstyle:check
+
+build_deploy:
+    stage: build_deploy
+    only: 
+        - master
+        - develop
+    script:
+        - bash deploy.sh
+        - bash run.sh

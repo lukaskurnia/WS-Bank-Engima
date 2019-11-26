@@ -14,7 +14,11 @@ public class GetDataNasabah {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/ws_bank?serverTimezone=UTC", "root", "");
+                "jdbc:mysql://localhost/ws_bank?autoReconnect=true&"
+                + "useSSL=false&useUnicode=true&"
+                + "useJDBCCompliantTimezoneShift=true&"
+                + "useLegacyDatetimeCode=false&serverTimezone=UTC",
+                "root", "password");
             Statement stmt = conn.createStatement();
 
             String query = "SELECT * FROM nasabah WHERE no_rek =" + noRek;
