@@ -28,4 +28,4 @@ Basis data yang digunakan untuk web service transaksi ini adalah mysql dengan na
 ## 4. URL Deployment
 
 Berikut ini merupakan URL yang digunakan untuk mendeploy ws_bank.
-http://3.83.30.182:8081/ws-bank-1.0-SNAPSHOT/services/ValidateRekening
+http://3.83.30.182:8080/ws-bank-1.0-SNAPSHOT/services/ValidateRekening

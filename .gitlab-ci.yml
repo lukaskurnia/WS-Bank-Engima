@@ -19,4 +19,3 @@ build_deploy:
         - develop
     script:
         - bash deploy.sh
-        - bash run.sh
